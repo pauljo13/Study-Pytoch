@@ -20,4 +20,10 @@
     - 파이토치는 모듈화된 디자인을 통해 확장성이 높다. 이는 사용자가 필요에 따라 커스텀한 모델과 기능을 쉽게 추가학소 확장할 수 있다.
  9. 편리한 데이터 로딩 및 전처리 :
     - "torchvision", "torchtext" 등의 라이브러리를 통해 이미지, 텍스트 등 다양한 유형의 데이터를 쉽게 로드하고 전처리할 수 있다.
+     
 ### 데이터 작업하기
+파이토치(PyToch)에는 데이터 작업을 위한 기본 요소 두가지인 torch.utils.data.DataLoader 와 torch.utils.data.Dataset가 있다.
+   - Dataset : 샘플과 정답(label)을 저장
+   - DataLoader : Dataset을 순회 가장한 객체(iterable)로 감싼다.
+torchvision.datasets 모듈은 CIFAR, COCO 등과 같은 다양한 실제 비전(vision) 데이터에 대한 Dataset을 포함하고 있다. 모든 TorchVision Dataset은 샘플과 정답을 각각 변경하기 위한 transform 과 target_transform의 두 인자를 포함한다.  
+Dataset을 DataLoader의 인자로 전달한다. 이는 데이터셋을 순회 가능한 객체(iterble)로 감싸고, 자동화된 배치(batch), 샘플링(sampling), 섞기(shuffle) 및 다중 프로세스로 데이터 불러오기를 지원한다. 여기서는 배치 크기를 64로 정의한다. 즉, 데이터로더 객체의 각 요소는 64개의 특징과 정답을 묶음으로 반환한다.
